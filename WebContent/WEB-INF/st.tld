@@ -22,5 +22,12 @@
 			<type>java.lang.String</type>
 		</attribute>
 	</tag>
+	
+	<tag>
+		<name>jobs3</name>
+		<tag-class>tags.Jobs3Handler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
 
 </taglib>

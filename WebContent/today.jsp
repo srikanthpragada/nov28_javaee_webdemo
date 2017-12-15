@@ -7,14 +7,7 @@
 <title>Today</title>
 </head>
 <body>
-	<h1>
-		<%
-			String today = new java.util.Date().toString();
-		%>
-		
-		<%=today%>
-		
-	</h1>
+	 <h2>${applicationScope.startedat} </h2>
 
 </body>
 </html>
