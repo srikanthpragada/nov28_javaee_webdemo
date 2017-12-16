@@ -1,1 +1,16 @@
-JSF  : https://mvnrepository.com/artifact/org.glassfish/javax.faces/2.2.0
+JSTL  -  https://mvnrepository.com/artifact/javax.servlet/jstl/1.2
+
+Java Mail - https://mvnrepository.com/artifact/com.sun.mail/javax.mail/1.6.0
+
+
+JSON API  - https://mvnrepository.com/artifact/org.glassfish/javax.json/1.1
+
+
+Metro project - https://javaee.github.io/metro/download
+
+Jersy project - https://jersey.github.io/download.html
+
+Mojarra = - https://mvnrepository.com/artifact/org.glassfish/javax.faces/2.3.3
+
+
+Hibernate Validator - http://hibernate.org/validator/releases/6.0/
