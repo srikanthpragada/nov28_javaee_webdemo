@@ -24,7 +24,7 @@
                 else  // found employee and got details 
                 {
                     $("#empname").val($(data).find("name").text());
-                    $("#empsal").val($("salary", data).text())
+                    $("#empsal").val($(data).find("salary").text())
                 }
             }
         </script>
@@ -34,7 +34,7 @@
             <table>
                 <tr>
                     <td>Employee ID : </td>
-                    <td><input type="text" id="empid" size="10"/> 
+                    <td><input type="text" id="empid" size="10" onblur="getEmployeeDetails()"/> 
                         <input type="button" value="Get Details" onclick="getEmployeeDetails()" /> </td>
                 </tr>
                 <tr>
