@@ -11,9 +11,7 @@
 
 	JsonArrayBuilder emps = Json.createArrayBuilder();
 	while (rs.next()) {
-		JsonObjectBuilder emp = Json.createObjectBuilder();
-		emp.add("fullname", rs.getString("fullname"));
-		emps.add(emp.build());
+		emps.add(rs.getString("fullname"));
 	}
 
 	rs.close();

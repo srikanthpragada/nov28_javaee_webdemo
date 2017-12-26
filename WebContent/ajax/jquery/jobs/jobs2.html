@@ -20,14 +20,14 @@
    }
    function getEmployees() {
       $("#employees").contents().remove(); // clear options
-      $.getJSON("employees.jsp",
+      $.getJSON("employees2.jsp",
           {jobid:$("#jobs").val()}, 
           displayEmployees);
    }
    function displayEmployees(data) {
-      $.each(data, function(index,emp){
+      $.each(data, function(index,fullname){
        // add items to List box
-       $("#employees").append("<option>" + emp.fullname + "</option>");
+       $("#employees").append("<option>" + fullname + "</option>");
        } // end of function
       ); // each
     }
