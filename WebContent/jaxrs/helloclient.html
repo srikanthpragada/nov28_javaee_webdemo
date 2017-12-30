@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>AJAX and XML with JQUERY</title>
+<script src="jquery-3.1.0.js"></script>
+<script>
+	function getMessage() {
+		$.get("http://localhost:8888/webdemo/rest/hello/" + $("#name").val() , {}, showMessage);
+	}	
+	function showMessage(msg) {
+		$("#message").html(msg);
+	}
+</script>
+</head>
+<body>
+	<h2>Hello Client</h2>
+	Your name : <input type="text" id="name" />
+	<button onclick="getMessage()">Get Message</button>
+	<h2 id="message"></h2>
+</body>
+</html>

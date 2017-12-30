@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Employee Client</title>
+<script src="jquery-3.1.0.js"></script>
+<script>
+	function getEmployee() {
+		$.ajax("http://localhost:8888/webdemo/rest/employees/"
+				+ $("#empid").val(), {
+			dataType : 'json',
+			success : showDetails,
+			error : showError,
+			method : 'get'
+		});
+	}
+	function showDetails(data) {
+		$("#info").html(data.fullname + "," + data.salary);
+	}
+
+	function showError() {
+		$("#info").html("Sorry! Employee Id Not Found!");
+	}
+
+	function getEmployees() {
+		$.getJSON("http://localhost:8888/webdemo/rest/employees",
+				{},showEmployees);
+	}
+
+	function showEmployees(employees) {
+		$("#employees").html(""); // clear 
+		$.each(employees,
+				function(idx, emp) {
+                     $("#employees").append("<li>" + emp.fullname + "," + emp.salary + "</li>");
+		        }
+		);
+	}
+</script>
+</head>
+<body>
+	<h2>Employee Client</h2>
+	Employee ID :
+	<input type="text" id="empid" />
+	<button onclick="getEmployee()">Get Details</button>
+	<h2 id="info"></h2>
+	<button onclick="getEmployees()">Get All Employees</button>
+
+	<ul id="employees">
+	</ul>
+</body>
+</html>
