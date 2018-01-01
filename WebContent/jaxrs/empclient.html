@@ -33,13 +33,48 @@
 		        }
 		);
 	}
+	
+	function deleteEmployee() {
+		$.ajax("http://localhost:8888/webdemo/rest/employees/"	+ $("#empid").val(), {
+			success : function() {alert('Deleted!')},
+			error : showDeleteError,
+			method : 'delete'
+		});
+	}
+	
+	function updateEmployee() {
+		$.ajax("http://localhost:8888/webdemo/rest/employees/"	+ $("#empid").val(), {
+			success : function() {alert('Updated!')},
+			error : showDeleteError,
+			method : 'put',
+			data : {"salary": $("#salary").val()},
+		});
+	}
+	
+	function showDeleteError(xhr, status, error) {
+		console.log(xhr);
+		console.log(status);
+		console.log(error);
+		
+		if (xhr.status == 404)
+			  alert("Sorry! Employee Id Not Found!");
+		else
+			  alert("Sorry! Could not perform operation!");
+		
+	}
+	
 </script>
 </head>
 <body>
 	<h2>Employee Client</h2>
 	Employee ID :
 	<input type="text" id="empid" />
-	<button onclick="getEmployee()">Get Details</button>
+	Salary :
+	<input type="text" id="salary" />
+	<p/> 
+	<button onclick="getEmployee()">Get</button>
+	<button onclick="updateEmployee()">Update</button>
+	<button onclick="deleteEmployee()">Delete</button>
 	<h2 id="info"></h2>
 	<button onclick="getEmployees()">Get All Employees</button>
 
