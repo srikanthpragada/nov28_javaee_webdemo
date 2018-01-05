@@ -9,17 +9,25 @@
 </head>
 <body>
 	<h2>Discount Calculation</h2>
-	<h:form id="discountForm"  prependId="false">
+	<h:form id="discountForm" prependId="false">
 	 Amount <br />
-		<h:inputText  p:type="number" id="amount" value="#{discountBean.amount}" p:min="1000">
+		<h:inputText id="amount" value="#{discountBean.amount}"
+			valueChangeListener="#{discountBean.changed}"
+			validatorMessage="Minimum value is 1000">
+			<f:validateDoubleRange minimum="1000"></f:validateDoubleRange>
 		</h:inputText>
+		<h:message for="amount"></h:message>
 		<p></p>
 	 Discount Rate <br />
-		<h:inputText id="rate" value="#{discountBean.rate}" p:type="number" p:min="5" p:max="50">
+		<h:inputText id="rate" value="#{discountBean.rate}" p:type="number"
+			p:min="5" p:max="50">
 		</h:inputText>
 		<p></p>
 		<h:commandButton value="Calculate"
 			actionListener="#{discountBean.calculate}"></h:commandButton>
+
+		<h:commandButton value="Cancel" immediate="true"
+			actionListener="#{discountBean.cancel}"></h:commandButton>
 		<p />
 		<ui:fragment rendered="#{discountBean.discount > 0}">
 			<h3>#{discountBean.discount}</h3>
