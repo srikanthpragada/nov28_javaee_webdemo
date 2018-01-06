@@ -1,7 +1,9 @@
 package jsf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
-import javax.sql.RowSet;
 import javax.sql.rowset.CachedRowSet;
 
 import oracle.jdbc.rowset.OracleCachedRowSet;
@@ -9,7 +11,7 @@ import oracle.jdbc.rowset.OracleCachedRowSet;
 @ManagedBean
 public class JobsBean {
 	
-	public  RowSet getJobs() {
+	public  List<Job> getJobs() {
 	
 		try (CachedRowSet crs = new OracleCachedRowSet()) {
 			crs.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
@@ -17,7 +19,14 @@ public class JobsBean {
 			crs.setPassword("hr");
 			crs.setCommand("select * from jobs");
 			crs.execute();
-			return crs;
+			ArrayList<Job> jobs = new ArrayList<>();
+			while (crs.next()) {
+				Job j = new Job();
+				j.setId( crs.getString(1));
+				j.setTitle( crs.getString(2));
+				jobs.add(j);
+			}
+			return jobs;
 		}
 		catch(Exception ex) {
 			return null;

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+<title></title>
+</head>
+<body>
+	<f:view locale="#{facesContext.externalContext.request.locale}">
+	   <f:loadBundle var="msgs"  basename="messages"></f:loadBundle>
+	   <h2>#{msgs.title}</h2>
+	   <h3>#{msgs.prompt}</h3>
+	</f:view>
+</body>
+</html>

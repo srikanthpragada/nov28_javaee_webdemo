@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	
 <head>
 <title>List Jobs</title>
+<style>
+   .header {background-color:red; color:white;}
+</style>
 </head>
 <body>
 	<h2>Jobs</h2>
 
-	<h:dataTable value="#{jobsBean.jobs}" var="job">
+	<h:dataTable value="#{jobsBean.jobs}" var="job" headerClass="header">
 		<h:column>
-	       #{job.job_id}
+		   <f:facet name="header">Id</f:facet>
+	       #{job.id}
         </h:column>
 		<h:column>
-	       #{job.job_title}
+		   <f:facet name="header">Title</f:facet>
+	       #{job.title}
         </h:column>
 	</h:dataTable>
 </body>
